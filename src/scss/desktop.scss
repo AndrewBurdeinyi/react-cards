@@ -1,0 +1,8 @@
+.desktop {
+    height: calc(100vh - 80px);
+    background: rgb(56, 56, 56);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

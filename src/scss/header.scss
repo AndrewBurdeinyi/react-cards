@@ -1,0 +1,37 @@
+.right-line {
+  min-height: 80px;
+  background: rgb(92, 92, 92);
+  width: 100%;
+  .menu-flex {
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    .logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 35px;
+      background: white;
+      text-align: center;
+      h2 {
+        margin: 0;
+        font-size: 47px;
+        font-style: bold;
+      }
+    }
+    .folders {
+      margin: 0 auto;
+      display: flex;
+      .folder {
+        cursor: pointer;
+        width: 60px;
+        height: 40px;
+        background: lightyellow;
+        margin: 15px 10px;
+      }
+    }
+  }
+}

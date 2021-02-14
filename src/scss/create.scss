@@ -1,0 +1,86 @@
+.modal-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal-body {
+        width: 100%;
+        max-width: 500px;
+        min-height: 300px;
+        background: lightyellow;
+        text-align: center;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        input {
+            border: none;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            outline: none;
+            background-color: inherit;
+        }
+        textarea {
+            margin: 15px 0;
+            min-height: 170px;
+            resize: none;
+            border: 1px solid blanchedalmond;
+            background-color: inherit;
+            outline: none;
+            font-size: 16px;
+        }
+        .select {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 15px auto 25px;
+            select {
+                padding: 5px;
+                border: 1px solid blanchedalmond;
+                background: inherit;
+                max-width: 80px;
+                font-size: 18px;
+            }
+            .color {
+                display: flex;
+                div {
+                    width: 28px;
+                    height: 28px;
+                    border: 1px solid black;
+                    margin: 2px 5px;
+                    cursor: pointer;
+                    &.yellow {
+                        background: lightyellow;
+                    }
+                    &.red {
+                        background: lightpink;
+                    }
+                    &.green {
+                        background: lightgreen;
+                    }
+                    &.blue {
+                        background: lightskyblue;
+                    }
+                }
+            }
+        }
+        .modal-body-btns {
+            margin: 0 auto;
+            display: flex;
+            max-width: 250px;
+            width: 100%;
+            justify-content: space-around;
+            div {
+                cursor: pointer;
+                font-size: 22px;
+                font-weight: 900;
+            }
+        }
+    }
+}

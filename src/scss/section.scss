@@ -1,0 +1,26 @@
+.section {
+    min-width: 220px;
+    max-width: 450px;
+    width: 100%;
+    margin: 0 5px;
+    .section-header {
+        margin: 15px 0;
+        padding: 10px;
+        height: 50px;
+        border-bottom: 1px solid white;
+        p {
+            margin: 0;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+    .section-body {
+        height: calc(100vh - 160px);
+        overflow: scroll;
+        &>.card:first-child {
+            margin-top: 0;
+        }
+    }
+}
