@@ -1,5 +1,6 @@
-import {ADD_NEW_CARD, CLOSE_CARD_EXTENDED, OPEN_CARD_EXTENDED, EDIT_CARD} from "./types";
-import {cloneWithoutLoc} from "@babel/types";
+import {ADD_NEW_CARD, CLOSE_CARD_EXTENDED, OPEN_CARD_EXTENDED, EDIT_CARD, CHANGE_ORDER} from "./types";
+const arrayMove = require('array-move');
+
 
 let initCards = {
     cardsID: 2,
@@ -84,8 +85,33 @@ export function cardsReducer(state = initCards, action) {
                     }
                 };
             }
+        case CHANGE_ORDER:
+            let src_i = action.payload.src_i,
+                dst_i = action.payload.dst_i,
+                src_stage = action.payload.src_stage,
+                dst_stage = action.payload.dst_stage,
+                quantity = state.cards[dst_stage].length,
+                changeCard = state.cards[src_stage][src_i];
+            console.log(quantity);
+            if (src_stage == dst_stage) {
+                return {
+                    ...state,
+                    cards: {
+                        ...state.cards,
+                        [src_stage]: arrayMove(state.cards[src_stage], src_i, dst_i)
+                    }
+                };
+            } else {
+                state.cards[src_stage].splice(src_i, 1);
+                return {
+                    ...state,
+                    cards: {
+                        ...state.cards,
+                        [dst_stage]: arrayMove([...state.cards[dst_stage].concat(changeCard)], quantity, dst_i)
+                    }
+                };
+            }
 
-            // const newState = state.cards[index] = Object.assign(action.payload);
         default: return state
     }
 }

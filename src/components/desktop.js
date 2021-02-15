@@ -4,7 +4,9 @@ import Section from './section';
 import {connect} from "react-redux";
 import Extended from './extended-card';
 import CreateCard from './create';
-import {closeCreateModal, openCardExtended} from "../store/actions";
+import {changeOrderCards, closeCreateModal, openCardExtended} from "../store/actions";
+import {DragDropContext} from "react-beautiful-dnd";
+
 
 class Desktop extends React.Component{
 
@@ -42,16 +44,30 @@ class Desktop extends React.Component{
                 />
                 : '';
 
+        function handleOnDragEnd(result) {
+            let src_i = result.source.index,
+                src_stage = result.source.droppableId,
+                dst_i = result.destination.index,
+                dst_stage = result.destination.droppableId;
+            this.props.changeOrderCards(src_i, dst_i, src_stage, dst_stage);
+        }
+
         return(
+
             <div className="desktop">
-                <Section click={this.clickOnCard.bind(this)} name="To Do" stage="todo" color="yellow"/>
+                <DragDropContext onDragEnd={handleOnDragEnd.bind(this)}>
 
-                <Section click={this.clickOnCard.bind(this)} name="Doing" stage="doing"/>
+                    <Section click={this.clickOnCard.bind(this)} name="To Do" stage="todo" color="yellow"/>
 
-                <Section click={this.clickOnCard.bind(this)} name="Done" stage="done" color="green"/>
-                {extendedWindow}
+                    <Section click={this.clickOnCard.bind(this)} name="Doing" stage="doing"/>
+
+                    <Section click={this.clickOnCard.bind(this)} name="Done" stage="done" color="green"/>
+
+                </DragDropContext>
                 {createWindow}
+                {extendedWindow}
             </div>
+
         );
     }
 }
@@ -65,7 +81,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = {
     closeCreateModal,
-    openCardExtended
+    openCardExtended,
+    changeOrderCards
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Desktop);

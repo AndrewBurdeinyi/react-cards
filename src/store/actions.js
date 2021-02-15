@@ -4,7 +4,7 @@ import {
     OPEN_CARD_EXTENDED,
     CLOSE_CARD_EXTENDED,
     ADD_NEW_CARD,
-    EDIT_CARD
+    EDIT_CARD, CHANGE_ORDER
 } from "./types";
 
 export function showCreateModal(params) {
@@ -53,6 +53,18 @@ export function editCard(id, name, text, stage, newStage, color) {
             stage,
             newStage,
             color
+        }
+    }
+}
+
+export function changeOrderCards(src_i, dst_i, src_stage, dst_stage) {
+    return {
+        type: CHANGE_ORDER,
+        payload: {
+            src_i,
+            dst_i,
+            src_stage,
+            dst_stage
         }
     }
 }
