@@ -20,7 +20,6 @@ class Desktop extends React.Component{
     }
 
     clickOnCard(id, name, text, stage, color) {
-        console.log(id, name, text, stage, color);
         this.setState({extendedID: id});
         this.setState({extendedName: name});
         this.setState({extendedText: text});

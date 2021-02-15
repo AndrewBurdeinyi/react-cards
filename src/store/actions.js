@@ -43,7 +43,7 @@ export function addNewCard(name, text, stage, color) {
     }
 }
 
-export function editCard(id, name, text, stage, color) {
+export function editCard(id, name, text, stage, newStage, color) {
     return {
         type: EDIT_CARD,
         payload: {
@@ -51,6 +51,7 @@ export function editCard(id, name, text, stage, color) {
             name,
             text,
             stage,
+            newStage,
             color
         }
     }

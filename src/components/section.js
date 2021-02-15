@@ -6,6 +6,9 @@ import {connect} from "react-redux";
 class Section extends React.Component{
 
     render() {
+
+        let cardArr = this.props.cards[this.props.stage];
+
         return(
 
             <div className="section">
@@ -14,8 +17,7 @@ class Section extends React.Component{
                     <p>{this.props.name}</p>
                 </div>
                     <div className="section-body">
-                        {this.props.cards.map((item, index) => {
-                            if(item.stage == this.props.stage) {
+                        {cardArr.reverse().map((item, index) => {
                                 return (
                                     <div className="cards-block" key={index}>
                                         <Card
@@ -23,12 +25,11 @@ class Section extends React.Component{
                                             id={item.id}
                                             name={item.name}
                                             text={item.text}
-                                            stage={item.stage}
+                                            stage={this.props.stage}
                                             color={item.color}
                                         />
                                     </div>
                                 )
-                            }
                         })
                         }
                     </div>

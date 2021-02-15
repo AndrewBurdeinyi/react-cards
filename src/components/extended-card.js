@@ -12,6 +12,7 @@ class Extended extends React.Component{
             name: this.props.name,
             text: this.props.text,
             stage: this.props.stage,
+            newStage: this.props.stage,
             color: this.props.color
         }
     }
@@ -23,7 +24,7 @@ class Extended extends React.Component{
         this.setState({text: e.target.value});
     }
     updateStage(e) {
-        this.setState({stage: e.target.value});
+        this.setState({newStage: e.target.value});
     }
     selectColor(e) {
         if(e.target.classList.contains('colorBlock')) {
@@ -32,7 +33,7 @@ class Extended extends React.Component{
         }
     }
     editCard() {
-        this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.color);
+        this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.newStage, this.state.color);
         this.props.closeCardExtended();
     }
 
