@@ -33,15 +33,21 @@ class Extended extends React.Component{
         }
     }
     editCard() {
-        this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.newStage, this.state.color);
-        this.props.closeCardExtended();
+        let allCards = this.props.cards.todo.concat(this.props.cards.doing).concat(this.props.cards.done),
+            allNames = allCards.map(item => item.name);
+        if(allNames.indexOf(this.state.name) != -1) {
+            alert('This name is used!');
+        } else {
+            this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.newStage, this.state.color);
+            this.props.closeCardExtended();
+        }
     }
 
     render(){
         return(
             <div className="modal-bg">
                 <div className="modal-body" style={{background: this.state.color}}>
-                    <input type="text" onChange={this.updateName.bind(this)} placeholder={this.state.name}></input>
+                    <input type="text" onChange={this.updateName.bind(this)} value={this.state.name}></input>
                     <textarea value={this.state.text} onChange={this.updateText.bind(this)}/>
                     <div className="select">
                         <select defaultValue={this.state.stage} onChange={this.updateStage.bind(this)}>
@@ -66,9 +72,15 @@ class Extended extends React.Component{
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        cards: state.cards.cards
+    };
+};
+
 const mapDispatchToProps = {
     closeCardExtended,
     editCard
 };
 
-export default connect(null, mapDispatchToProps)(Extended);
+export default connect(mapStateToProps, mapDispatchToProps)(Extended);

@@ -62,29 +62,6 @@ export function cardsReducer(state = initCards, action) {
                     [stage]: [...state.cards[stage].concat(newCard)]
                 }
             };
-        case EDIT_CARD:
-            let id = action.payload.id,
-                edit_stage = action.payload.stage,
-                new_stage = action.payload.newStage,
-                index = state.cards[edit_stage].findIndex(x => x.id === id),
-                editCard = {
-                    id,
-                    name: action.payload.name,
-                    text: action.payload.text,
-                    color: action.payload.color
-                };
-            if (edit_stage == new_stage) {
-                state.cards[edit_stage][index] = Object.assign(editCard);
-            } else {
-                state.cards[edit_stage].splice(index, 1);
-                return {
-                    ...state,
-                    cards: {
-                        ...state.cards,
-                        [new_stage]: [...state.cards[new_stage].concat(editCard)]
-                    }
-                };
-            }
         case CHANGE_ORDER:
             let src_i = action.payload.src_i,
                 dst_i = action.payload.dst_i,
@@ -92,7 +69,6 @@ export function cardsReducer(state = initCards, action) {
                 dst_stage = action.payload.dst_stage,
                 quantity = state.cards[dst_stage].length,
                 changeCard = state.cards[src_stage][src_i];
-            console.log(quantity);
             if (src_stage == dst_stage) {
                 return {
                     ...state,
@@ -111,6 +87,30 @@ export function cardsReducer(state = initCards, action) {
                     }
                 };
             }
+        case EDIT_CARD:
+            let id = action.payload.id,
+                edit_stage = action.payload.stage,
+                new_stage = action.payload.newStage,
+                index = state.cards[edit_stage].findIndex(x => x.id === id),
+                editCard = {
+                    id,
+                    name: action.payload.name,
+                    text: action.payload.text,
+                    color: action.payload.color
+                };
+            if (edit_stage != new_stage) {
+                state.cards[edit_stage].splice(index, 1);
+                return {
+                    ...state,
+                    cards: {
+                        ...state.cards,
+                        [new_stage]: [...state.cards[new_stage].concat(editCard)]
+                    }
+                };
+            } else {
+                state.cards[edit_stage][index] = Object.assign(editCard);
+            }
+
 
         default: return state
     }

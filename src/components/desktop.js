@@ -45,6 +45,7 @@ class Desktop extends React.Component{
                 : '';
 
         function handleOnDragEnd(result) {
+            if (!result.destination) return;
             let src_i = result.source.index,
                 src_stage = result.source.droppableId,
                 dst_i = result.destination.index,
