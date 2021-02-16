@@ -1,7 +1,8 @@
-import react from "react";
 import React from 'react';
 import '../scss/header.scss';
 import AddCard from './buttons';
+import {connect} from "react-redux";
+import {toggleCarte} from "../store/actions";
 
 class Header extends React.Component{
     
@@ -11,13 +12,15 @@ class Header extends React.Component{
 
             <div className="right-line">
                 <div className="menu-flex">
-                    <div className="logo"><h2>{this.props.name}</h2></div>
+                    <div onClick={this.props.toggleCarte} className="menu">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div className="folder">
+                        <h3>Folder Name</h3>
+                    </div>
                     <AddCard />
-                    {/* <div className="folders">
-                        <div className="folder"></div>
-                        <div className="folder"></div>
-                        <div className="folder"></div>
-                    </div> */}
                 </div>
             </div>
             
@@ -26,4 +29,8 @@ class Header extends React.Component{
     }
 }
 
-export default Header;
+const mapDispatchToProps = {
+    toggleCarte
+};
+
+export default connect(null, mapDispatchToProps)(Header);

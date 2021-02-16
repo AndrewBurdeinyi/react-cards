@@ -1,0 +1,142 @@
+.carte {
+  background: grey;
+  max-width: 380px;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: calc(100vh - 80px);
+  transition: 1s;
+  padding: 15px 0;
+  left: -380px;
+  overflow: scroll;
+  .you-prof {
+    text-align: center;
+    border-bottom: 1px solid white;
+    padding: 15px 5px;
+    .logo {
+      margin: 0 auto;
+      width: 105px;
+      height: 105px;
+      border-radius: 35px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      h2 {
+        margin: 0;
+        font-size: 67px;
+        font-style: bold;
+      }
+    }
+    .username {
+      font-size: 22px;
+      color: white;
+    }
+    .exit {
+      margin: 0 auto;
+      width: 70px;
+      border: 1px solid red;
+      cursor: pointer;
+      border-radius: 5px;
+      p {
+        margin: 5px 0;
+        color: white;
+      }
+    }
+  }
+  .folders {
+    list-style: none;
+    margin: 25px;
+    .fld {
+      margin: 15px 0;
+      position: relative;
+      left: 7px;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      &::before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: -45px;
+        top: -4px;
+        background: url("../img/folder.svg");
+      }
+    }
+  }
+  .add-new-fld {
+    margin: 15px auto;
+    width: 70px;
+    border: 1px solid mediumseagreen;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    p {
+      margin: 5px 0;
+      color: white;
+    }
+  }
+  .current-folder {
+    text-align: center;
+    border-top: 1px solid white;
+    padding: 0 15px;
+    h3 {
+      color: white;
+      font-size: 24px;
+    }
+    .cards-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      p {
+        margin: 0 5px;
+      }
+    }
+    .admins {
+      margin-top: 25px;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      &>p {
+        color: white;
+        font-weight: 500;
+        margin: 10px 5px;
+      }
+      .admin-name {
+        display: inline-block;
+        border-radius: 10px;
+        border: 1px solid white;
+        margin: 5px;
+        p {
+          margin: 5px 5px 6px;
+          color: white;
+          display: inline-block;
+        }
+        span {
+          display: inline-block;
+          width: 20px;
+          text-align: center;
+          border-radius: 7px;
+          color: white;
+          margin: 0 4px 0 0;
+          font-weight: 800;
+          cursor: pointer;
+          height: 20px;
+          background: red;
+        }
+        &.master {
+          background: mediumseagreen;
+          border: none;
+        }
+        &.add-new {
+          cursor: pointer;
+          border: 1px solid mediumseagreen;
+        }
+      }
+    }
+
+  }
+}

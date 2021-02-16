@@ -75,7 +75,7 @@ class Desktop extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        createModalShow: state.createMod.createModalShow,
+        createModalShow: state.switch.createModalShow,
         cards: state.cards.cards,
         extendedWindow: state.cards.cardExtendedOpen
     };

@@ -8,29 +8,42 @@
     margin: 0 auto;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    .logo {
+    .menu {
       width: 60px;
-      height: 60px;
-      border-radius: 35px;
-      background: white;
+      height: 45px;
+      border: 1px solid white;
+      border-radius: 5px;
       text-align: center;
-      h2 {
-        margin: 0;
-        font-size: 47px;
-        font-style: bold;
+      cursor: pointer;
+      display: flex;
+      padding: 5px 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      div {
+        width: 40px;
+        height: 2px;
+        background: white;
       }
     }
-    .folders {
-      margin: 0 auto;
-      display: flex;
-      .folder {
-        cursor: pointer;
-        width: 60px;
-        height: 40px;
-        background: lightyellow;
-        margin: 15px 10px;
+    .folder {
+      position: relative;
+      left: 7px;
+      &::before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        left: -30px;
+        top: 14px;
+        background: url("../img/folder.svg");
+      }
+      h3 {
+        color: white;
+        margin-left: 7px;
       }
     }
   }

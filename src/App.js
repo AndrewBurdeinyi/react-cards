@@ -2,17 +2,32 @@ import React from 'react';
 import './App.scss';
 import Header from './components/header';
 import Desktop from './components/desktop';
+import {connect} from "react-redux";
+import Carte from "./components/carte";
 
 
-function App() {
- return (
+class App extends React.Component {
 
-    <>
-      <Header name="A"/>
-      <Desktop/>
-    </>  
-      
-    )
+    render() {
+
+        return (
+
+            <>
+                <Header name="A"/>
+                <div className={(this.props.carteShow) ? 'room show-carte ' : 'room'}>
+                    <Carte/>
+                    <Desktop/>
+                </div>
+            </>
+
+        )
+    }
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        carteShow: state.switch.carteShow,
+    };
+};
+
+export default connect(mapStateToProps)(App);

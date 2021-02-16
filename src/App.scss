@@ -1,3 +1,15 @@
 * {
     box-sizing: border-box;
 }
+.room {
+    width: 100%;
+    overflow: hidden;
+    &.show-carte{
+        .carte {
+            left: 0;
+        }
+        .desktop {
+            margin-left: 380px;
+        }
+    }
+}

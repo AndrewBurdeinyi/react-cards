@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import { createModReducer } from './createModReducer';
+import { switchReducer } from './switchReducer';
 import { cardsReducer } from './cardReducer';
 
 
 export const rootReducer = combineReducers({
-    createMod: createModReducer,
+    switch: switchReducer,
     cards: cardsReducer
 });
 
