@@ -4,7 +4,7 @@ import {
     OPEN_CARD_EXTENDED,
     CLOSE_CARD_EXTENDED,
     ADD_NEW_CARD,
-    EDIT_CARD, CHANGE_ORDER, TOGGLE_CARTE
+    EDIT_CARD, CHANGE_ORDER, TOGGLE_CARTE, CLOSE_CARTE
 } from "./types";
 
 export function showCreateModal(params) {
@@ -22,6 +22,12 @@ export function closeCreateModal(params) {
 export function toggleCarte(params) {
     return {
         type: TOGGLE_CARTE
+    }
+}
+
+export function closeCarte(params) {
+    return {
+        type: CLOSE_CARTE
     }
 }
 

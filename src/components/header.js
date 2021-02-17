@@ -10,7 +10,7 @@ class Header extends React.Component{
     
         return (
 
-            <div className="right-line">
+            <div className="up-line">
                 <div className="menu-flex">
                     <div onClick={this.props.toggleCarte} className="menu">
                         <div></div>

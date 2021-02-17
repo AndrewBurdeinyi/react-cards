@@ -1,4 +1,4 @@
-.right-line {
+.up-line {
   min-height: 80px;
   background: rgb(92, 92, 92);
   width: 100%;
@@ -30,7 +30,8 @@
     }
     .folder {
       position: relative;
-      left: 7px;
+      left: 15px;
+      max-width: 400px;
       &::before {
         content: '';
         display: block;
@@ -44,6 +45,29 @@
       h3 {
         color: white;
         margin-left: 7px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .up-line {
+    .menu-flex {
+      .folder {
+        max-width: 140px;
+      }
+    }
+  }
+}
+
+@media(max-width: 800px) {
+  .up-line {
+    .menu-flex {
+      .folder {
+        max-width: 250px;
       }
     }
   }

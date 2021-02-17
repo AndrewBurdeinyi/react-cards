@@ -4,12 +4,45 @@
 .room {
     width: 100%;
     overflow: hidden;
+    background: rgb(56, 56, 56);
     &.show-carte{
         .carte {
             left: 0;
         }
         .desktop {
             margin-left: 380px;
+            .overlay {
+                @media(max-width: 1060px) {
+                    position: absolute;
+                    width: calc(100vw - 380px);
+                    height: calc(100vh - 80px);
+                    transition-delay: .9s;
+                    background: rgba(0, 0, 0, .7);
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 685px) {
+    .room {
+        &.show-carte {
+            .carte {
+                width: 100%;
+                max-width: 100%;
+            }
+            .desktop {
+                margin-left: 100%;
+                max-height: calc(100vh - 80px);
+                position: relative;
+                display: block;
+                .overlay {
+                    display: none;
+                }
+                .section {
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }

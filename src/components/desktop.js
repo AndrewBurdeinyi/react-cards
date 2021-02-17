@@ -4,7 +4,7 @@ import Section from './section';
 import {connect} from "react-redux";
 import Extended from './extended-card';
 import CreateCard from './create';
-import {changeOrderCards, closeCreateModal, openCardExtended} from "../store/actions";
+import {changeOrderCards, closeCarte, closeCreateModal, openCardExtended} from "../store/actions";
 import {DragDropContext} from "react-beautiful-dnd";
 
 
@@ -27,6 +27,7 @@ class Desktop extends React.Component{
         this.setState({extendedText: text});
         this.setState({extendedStage: stage});
         this.setState({extendedColor: color});
+        this.props.closeCarte();
         this.props.openCardExtended();
     }
 
@@ -56,6 +57,7 @@ class Desktop extends React.Component{
         return(
 
             <div className="desktop">
+                <div className='overlay'></div>
                 <DragDropContext onDragEnd={handleOnDragEnd.bind(this)}>
 
                     <Section click={this.clickOnCard.bind(this)} name="To Do" stage="todo" color="yellow"/>
@@ -83,7 +85,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     closeCreateModal,
     openCardExtended,
-    changeOrderCards
+    changeOrderCards,
+    closeCarte
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Desktop);
