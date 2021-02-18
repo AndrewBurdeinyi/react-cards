@@ -18,7 +18,7 @@ class Header extends React.Component{
                         <div></div>
                     </div>
                     <div className="folder">
-                        <h3>Folder Name</h3>
+                        <h3>{this.props.folder}</h3>
                     </div>
                     <AddCard />
                 </div>
@@ -28,9 +28,13 @@ class Header extends React.Component{
 
     }
 }
-
+const mapStateToProps = state => {
+    return {
+        folder: state.fold.current.name
+    }
+};
 const mapDispatchToProps = {
     toggleCarte
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

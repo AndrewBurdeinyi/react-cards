@@ -7,13 +7,13 @@ let initCards = {
     cards: {
         todo: [
             {
-                id: 0,
+                id: 'werg',
                 name: 'New Card Name',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
                 color: 'lightyellow'
             },
             {
-                id: 1,
+                id: 'wqefv',
                 name: 'Other Card Name',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 color: 'lightpink'
@@ -22,7 +22,7 @@ let initCards = {
         doing: [],
         done: [
             {
-                id: 2,
+                id: 'pokpoj',
                 name: 'Other Name',
                 text: 'Lorem ipsum dolor sit amet',
                 color: 'lightgreen'
@@ -49,11 +49,12 @@ export function cardsReducer(state = initCards, action) {
                 stage = data.stage,
                 cardId = state.cardsID + 1,
                 newCard = {
-                    id: cardId,
+                    id: data.name.toLowerCase().replace(/ /g, "_") + cardId,
                     name: data.name,
                     text: data.text,
                     color: data.color
                 };
+            console.log(newCard.id);
             return {
                 ...state,
                 cardsID: cardId,

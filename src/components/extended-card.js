@@ -33,14 +33,8 @@ class Extended extends React.Component{
         }
     }
     editCard() {
-        let allCards = this.props.cards.todo.concat(this.props.cards.doing).concat(this.props.cards.done),
-            allNames = allCards.map(item => item.name);
-        if(allNames.indexOf(this.state.name) != -1) {
-            alert('This name is used!');
-        } else {
-            this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.newStage, this.state.color);
-            this.props.closeCardExtended();
-        }
+        this.props.editCard(this.state.id, this.state.name, this.state.text, this.state.stage, this.state.newStage, this.state.color);
+        this.props.closeCardExtended();
     }
 
     render(){

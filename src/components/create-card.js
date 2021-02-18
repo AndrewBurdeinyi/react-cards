@@ -30,14 +30,8 @@ class CreateCard extends React.Component{
         }
     }
     createCard() {
-        let allCards = this.props.cards.todo.concat(this.props.cards.doing).concat(this.props.cards.done),
-            allNames = allCards.map(item => item.name);
-        if(allNames.indexOf(this.state.name) != -1) {
-            alert('This name is used!');
-        } else {
-            this.props.addNewCard(this.state.name, this.state.text, this.state.stage, this.state.color);
-            this.props.closeCreateModal();
-        }
+        this.props.addNewCard(this.state.name, this.state.text, this.state.stage, this.state.color);
+        this.props.closeCreateModal();
     }
 
     render(){

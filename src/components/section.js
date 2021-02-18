@@ -23,7 +23,7 @@ class Section extends React.Component{
                         <div className={`section-body ${this.props.stage}`} {...provided.droppableProps} ref={provided.innerRef}>
                             {cardArr.map((item, index) => {
                                 return (
-                                    <Draggable key={item.id} draggableId={item.name} index={index}>
+                                    <Draggable key={item.id} draggableId={item.id} index={index}>
                                         {(provided) => (
                                             <div className="cards-block" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                 <Card

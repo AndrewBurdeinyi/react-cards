@@ -1,8 +1,9 @@
-import {CREATE_MODAL_CLOSE, CREATE_MODAL_SHOW, TOGGLE_CARTE, CLOSE_CARTE} from "./types";
+import {CREATE_MODAL_CLOSE, CREATE_MODAL_SHOW, TOGGLE_CARTE, CLOSE_CARTE, ADD_FLD_OPEN, ADD_FLD_CLOSE} from "./types";
 
 let initModState = {
     createModalShow: false,
-    carteShow: false
+    carteShow: false,
+    createFolder: false
 };
 
 export function switchReducer(state = initModState, action) {
@@ -27,6 +28,16 @@ export function switchReducer(state = initModState, action) {
             return {
                 ...state,
                 carteShow: false
+            };
+        case ADD_FLD_OPEN:
+            return {
+                ...state,
+                createFolder: true
+            };
+        case ADD_FLD_CLOSE:
+            return {
+                ...state,
+                createFolder: false
             };
         default: return state
     }

@@ -3,7 +3,7 @@ import '../scss/desktop.scss';
 import Section from './section';
 import {connect} from "react-redux";
 import Extended from './extended-card';
-import CreateCard from './create';
+import CreateCard from './create-card';
 import {changeOrderCards, closeCarte, closeCreateModal, openCardExtended} from "../store/actions";
 import {DragDropContext} from "react-beautiful-dnd";
 

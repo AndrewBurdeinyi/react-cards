@@ -4,28 +4,28 @@ import {
     OPEN_CARD_EXTENDED,
     CLOSE_CARD_EXTENDED,
     ADD_NEW_CARD,
-    EDIT_CARD, CHANGE_ORDER, TOGGLE_CARTE, CLOSE_CARTE
+    EDIT_CARD, CHANGE_ORDER, TOGGLE_CARTE, CLOSE_CARTE, CHANGE_CURRENT_FOLDER, ADD_FLD_CLOSE, ADD_FLD_OPEN, ADD_NEW_FOLDER
 } from "./types";
 
-export function showCreateModal(params) {
+export function showCreateModal() {
     return {
         type: CREATE_MODAL_SHOW
     }
 }
 
-export function closeCreateModal(params) {
+export function closeCreateModal() {
     return {
         type: CREATE_MODAL_CLOSE
     }
 }
 
-export function toggleCarte(params) {
+export function toggleCarte() {
     return {
         type: TOGGLE_CARTE
     }
 }
 
-export function closeCarte(params) {
+export function closeCarte() {
     return {
         type: CLOSE_CARTE
     }
@@ -78,5 +78,31 @@ export function changeOrderCards(src_i, dst_i, src_stage, dst_stage) {
             src_stage,
             dst_stage
         }
+    }
+}
+
+export function changeCurrentFolder(name) {
+    return {
+        type: CHANGE_CURRENT_FOLDER,
+        payload: name
+    }
+}
+
+export function addFldOpen() {
+    return {
+        type: ADD_FLD_OPEN
+    }
+}
+
+export function addFldClose() {
+    return {
+        type: ADD_FLD_CLOSE
+    }
+}
+
+export function addNewFolder(name) {
+    return {
+        type: ADD_NEW_FOLDER,
+        payload: name
     }
 }

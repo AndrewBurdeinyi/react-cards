@@ -5,7 +5,7 @@
   position: absolute;
   z-index: 2;
   height: calc(100vh - 80px);
-  transition: 1s;
+  transition: .5s;
   padding: 15px 0;
   left: -380px;
   overflow: scroll;
@@ -55,6 +55,7 @@
       font-size: 20px;
       font-weight: 600;
       cursor: pointer;
+      transition: left .5s;
       &::before {
         content: '';
         display: block;
@@ -64,6 +65,40 @@
         left: -45px;
         top: -4px;
         background: url("../img/folder.svg");
+      }
+      &.current-fld {
+        color: lightgreen;
+        cursor: default;
+        &:hover {left: 7px}
+      }
+      &:hover {
+        left: 15px;
+      }
+      &.add-fld-field {
+        display: flex;
+        input {
+          margin-right: 10px;
+          background: inherit;
+          border: 1px solid white;
+          padding: 5px;
+          position: relative;
+          top: -4px;
+          max-width: 130px;
+          color: white;
+          font-size: 18px;
+          font-weight: 600;
+        }
+        .fld-ok {
+          font-size: 18px;
+          margin: 2px 10px;
+          color: black;
+        }
+        .fld-cancel {
+          font-size: 18px;
+          margin: 2px 10px;
+          color: black;
+        }
+        &:hover {left: 7px}
       }
     }
   }
