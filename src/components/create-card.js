@@ -2,6 +2,7 @@ import React from 'react';
 import '../scss/create.scss';
 import {connect} from "react-redux";
 import {addNewCard, closeCreateModal} from '../store/actions';
+import WriteDB from '../functions/writeDB';
 
 class CreateCard extends React.Component{
     constructor(props){
@@ -29,9 +30,10 @@ class CreateCard extends React.Component{
             this.setState({color});
         }
     }
-    createCard() {
-        this.props.addNewCard(this.state.name, this.state.text, this.state.stage, this.state.color);
+    async createCard() {
+        await this.props.addNewCard(this.state.name, this.state.text, this.state.stage, this.state.color);
         this.props.closeCreateModal();
+        WriteDB(this.props.folder, this.props.cards);
     }
 
     render(){
@@ -65,7 +67,8 @@ class CreateCard extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        cards: state.cards.cards
+        cards: state.cards.cards,
+        folder: state.fold.current
     };
 };
 

@@ -1,33 +1,25 @@
 import React from 'react';
 import './App.scss';
-import Header from './components/header';
-import Desktop from './components/desktop';
-import {connect} from "react-redux";
-import Carte from "./components/carte";
+import {BrowserRouter} from 'react-router-dom';
+import {useRotes} from "./routes";
+import {useAuth} from "./hooks/auth.hook";
+import {AuthContext} from "./context/auth.context";
 
+function App() {
+    const {token, login, logout, usrID} = useAuth();
+    const isAuthenticated = !!token;
+    const routes = useRotes(isAuthenticated);
 
-class App extends React.Component {
+    return (
+        <AuthContext.Provider value={{
+            token, usrID, login, logout, isAuthenticated
+        }}>
+        <BrowserRouter>
+            {routes}
+        </BrowserRouter>
+        </AuthContext.Provider>
+    )
 
-    render() {
-
-        return (
-
-            <>
-                <Header name="A"/>
-                <div className={(this.props.carteShow) ? 'room show-carte ' : 'room'}>
-                    <Carte/>
-                    <Desktop/>
-                </div>
-            </>
-
-        )
-    }
 }
 
-const mapStateToProps = state => {
-    return {
-        carteShow: state.switch.carteShow,
-    };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

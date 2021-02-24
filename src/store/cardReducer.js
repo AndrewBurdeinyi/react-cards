@@ -54,7 +54,6 @@ export function cardsReducer(state = initCards, action) {
                     text: data.text,
                     color: data.color
                 };
-            console.log(newCard.id);
             return {
                 ...state,
                 cardsID: cardId,
